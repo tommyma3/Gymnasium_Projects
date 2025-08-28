@@ -22,3 +22,4 @@ if __name__ == "__main__":
     state = torch.randn((1, state_dim))
     output = net(state)
     print(output)
+    
