@@ -1,5 +1,5 @@
 import datetime
-from random import random
+import random
 import flappy_bird_gymnasium
 import gymnasium
 from dqn import DQN
@@ -8,6 +8,7 @@ from torch import nn
 from experience_replay import ReplayMemory
 import itertools
 import yaml
+from datetime import datetime, timedelta
 
 import os
 
@@ -84,7 +85,7 @@ class Agent:
 
             best_reward = -float('inf')
         else:
-            policy_dqn.load_state_dict(torch.load(self.MODEL_FILE, map_location=device))
+            policy_dqn.load_state_dict(torch.load(self.MODEL_FILE))
             policy_dqn.eval()
 
         for episode in itertools.count():
@@ -131,7 +132,7 @@ class Agent:
                     best_reward = episode_reward
 
                 current_time = datetime.now()
-                if current_time - last_graph_update_time > datetime.timedelta(seconds=10) :
+                if current_time - last_graph_update_time > timedelta(seconds=10) :
                     self.save_graph(rewards_per_episode, epsilon_history)
                     last_graph_update_time = current_time
 

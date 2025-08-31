@@ -1,0 +1,25 @@
+20250831-111205 Starting training with hyperparameter set 'cartpole1'
+20250831-111235 Starting training with hyperparameter set 'cartpole1'
+20250831-111237 New best reward 12.0 in episode 0
+20250831-111254 Starting training with hyperparameter set 'cartpole1'
+20250831-111256 New best reward 27.0 in episode 0
+20250831-111257 New best reward 28.0 in episode 3
+20250831-111257 New best reward 33.0 in episode 4
+20250831-111257 New best reward 54.0 in episode 7
+20250831-111559 Starting training with hyperparameter set 'cartpole1'
+20250831-111601 New best reward 13.0 in episode 0
+20250831-111601 New best reward 27.0 in episode 1
+20250831-111601 New best reward 42.0 in episode 3
+20250831-111601 New best reward 66.0 in episode 18
+20250831-111601 New best reward 69.0 in episode 36
+20250831-111707 New best reward 73.0 in episode 6139
+20250831-111707 New best reward 75.0 in episode 6140
+20250831-111712 New best reward 110.0 in episode 6363
+20250831-111714 New best reward 260.0 in episode 6439
+20250831-111715 New best reward 385.0 in episode 6475
+20250831-112312 New best reward 866.0 in episode 18547
+20250831-112312 New best reward 1212.0 in episode 18550
+20250831-112313 New best reward 1219.0 in episode 18552
+20250831-112314 New best reward 1472.0 in episode 18567
+20250831-112316 New best reward 1554.0 in episode 18574
+20250831-112338 New best reward 58654.0 in episode 18580
