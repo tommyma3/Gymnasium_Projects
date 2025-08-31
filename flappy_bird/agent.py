@@ -34,6 +34,7 @@ class Agent:
         
         self.hyperparameter_set = hyperparameter_set
 
+        self.env_id = hyperparameters["env_id"]
         self.replay_memory_size = hyperparameters["replay_memory_size"]
         self.mini_batch_size = hyperparameters["mini_batch_size"]
         self.epsilon_init = hyperparameters["epsilon_init"]
@@ -64,7 +65,7 @@ class Agent:
                 file.write(log_message + '\n')
 
         # env = gymnasium.make("FlappyBird-v0", render_mode="human", use_lidar=True)
-        env = gymnasium.make("CartPole-v1", render_mode="human" if render else None)
+        env = gymnasium.make(self.env_id, render_mode="human" if render else None)
 
         num_states = env.observation_space.shape[0]
         num_actions = env.action_space.n

@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "agent.py",
             "console": "integratedTerminal",
-            "args": ["flappybird1", "--train"]
+            "args": ["flappybird1"]
         }
     ]
 }
