@@ -1,0 +1,10 @@
+minst1:
+  n_envs: 32
+  learning_rate: 3e-4
+  entropy_coef: 0.01
+  baseline_tau: 0.05
+  eval_interval: 5000
+  target_accuracy: 0.990
+  patience: 3
+  seed: None
+  hidden_dim: 128

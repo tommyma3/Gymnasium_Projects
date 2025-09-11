@@ -26,6 +26,7 @@ class MNISTEnv(gym.Env):
         self.current_obs = None
         self.current_label = None
         self.episode_step = 0
+        
 
     def seed(self, seed=None):
         self.rng = np.random.default_rng(seed)

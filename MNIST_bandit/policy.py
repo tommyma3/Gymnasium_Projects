@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class Policy(nn.Module):
-    def __init__(self, input_dim, output_dim=10, hidden_dim=128):
+    def __init__(self, output_dim=10, hidden_dim=128):
         super(Policy, self).__init__()
 
         self.conv1 = nn.Conv2d(1, 32, 3, padding=1)
@@ -24,4 +24,4 @@ class Policy(nn.Module):
         x = self.fc2(x)
         return x
     
-    
+
