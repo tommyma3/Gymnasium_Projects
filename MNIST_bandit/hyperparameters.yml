@@ -1,10 +1,13 @@
 minst1:
-  n_envs: 32
-  learning_rate: 3e-4
+  split: "train"
+  eval_split: "test"
+  env_device: "cpu"
+  learning_rate: 0.0003
   entropy_coef: 0.01
   baseline_tau: 0.05
-  eval_interval: 5000
-  target_accuracy: 0.990
+  eval_interval_episodes: 1000
+  target_accuracy: 0.99
   patience: 3
-  seed: None
-  hidden_dim: 128
+  max_wall_seconds: None
+  seed: 42
+  render_eval: false

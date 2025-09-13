@@ -7,7 +7,7 @@ class Policy(nn.Module):
         super(Policy, self).__init__()
 
         self.conv1 = nn.Conv2d(1, 32, 3, padding=1)
-        self.conv2 = nn.Conv2d(34, 64, 3, padding=1)
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
 
         self.pool = nn.MaxPool2d(2, 2)
         self.dropout = nn.Dropout(0.25)

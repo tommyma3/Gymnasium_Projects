@@ -10,7 +10,7 @@ class MNISTEnv(gym.Env):
     metadata = {"render_modes": ["human"], "render_fps": 30}
 
 
-    def __init__(self, split="train", seed: int | None = None, device="cpu", ):
+    def __init__(self, split="train", seed: int | None = None, device="cpu"):
         super().__init__()
         self.device = torch.device(device)
 
@@ -21,7 +21,11 @@ class MNISTEnv(gym.Env):
 
         self.action_space = spaces.Discrete(10)
 
-        self.rng = np.random.default_rng(seed)
+        if seed is None:
+            self.rng = np.random.default_rng()
+        else:
+            self.rng = np.random.default_rng(seed)
+
         self.current_index = None
         self.current_obs = None
         self.current_label = None
@@ -29,7 +33,10 @@ class MNISTEnv(gym.Env):
         
 
     def seed(self, seed=None):
-        self.rng = np.random.default_rng(seed)
+        if seed is None:
+            self.rng = np.random.default_rng()
+        else:
+            self.rng = np.random.default_rng(seed)
 
     def _get_sample(self):
         idx = self.rng.integers(0, len(self.dataset))
@@ -79,18 +86,3 @@ class MNISTEnv(gym.Env):
     def close(self):
         pass
 
-if __name__ == "__main__":
-    env = MNISTEnv(split="train", seed=42)
-    obs, info = env.reset()
-    print("Obs shape:", obs.shape, "Label:", info["label"])
-
-    total = 0
-    correct = 0
-    for _ in range(100):
-        action = env.action_space.sample()  # random policy
-        obs, reward, terminated, truncated, info = env.step(action)
-        total += 1
-        correct += int(info["correct"])
-        if terminated:
-            env.reset()
-    print("Random policy accuracy:", correct / total)
