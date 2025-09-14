@@ -1,0 +1,318 @@
+20250913-213042 Starting training with hyperparameter set 'minst1'
+20250913-213303 Starting training with hyperparameter set 'minst1'
+20250913-213651 Starting training with hyperparameter set 'minst1'
+20250913-213950 Starting training with hyperparameter set 'minst1'
+20250913-214107 Starting training with hyperparameter set 'minst1'
+20250913-214325 Starting training with hyperparameter set 'minst1'
+20250913-214406 Starting training with hyperparameter set 'minst1'
+20250913-214601 Starting training with hyperparameter set 'minst1'
+20250913-214628 Episode 1000 | mean_train_reward(last 1000)=-0.7880 | eval_reward=-0.6570 | eval_accuracy=0.1715 | baseline=-0.590
+20250913-214713 Starting training with hyperparameter set 'minst1'
+20250913-214740 Episode 1000 | mean_train_reward(last 1000)=-0.7880 | eval_reward=-0.6570 | eval_accuracy=0.1715 | baseline=-0.590
+20250913-214740 New best eval accuracy 0.1715 at episode 1000
+20250913-214955 Starting training with hyperparameter set 'minst1'
+20250913-215021 Episode 1000 | mean_train_reward(last 1000)=-0.7880 | eval_reward=-0.6570 | eval_accuracy=0.1715 | baseline=-0.590
+20250913-215021 New best eval accuracy 0.1715 at episode 1000
+20250913-225500 Starting training with hyperparameter set 'minst1'
+20250913-225525 Episode 1000 | mean_train_reward(last 1000)=-0.7880 | eval_reward=-0.6570 | eval_accuracy=0.1715 | baseline=-0.590
+20250913-225525 New best eval accuracy 0.1715 at episode 1000
+20250913-225554 Episode 2000 | mean_train_reward(last 1000)=-0.1440 | eval_reward=0.1306 | eval_accuracy=0.5653 | baseline=0.171
+20250913-225554 New best eval accuracy 0.5653 at episode 2000
+20250913-225623 Episode 3000 | mean_train_reward(last 1000)=0.2660 | eval_reward=0.3042 | eval_accuracy=0.6521 | baseline=0.551
+20250913-225623 New best eval accuracy 0.6521 at episode 3000
+20250913-225652 Episode 4000 | mean_train_reward(last 1000)=0.3760 | eval_reward=0.5000 | eval_accuracy=0.7500 | baseline=0.508
+20250913-225652 New best eval accuracy 0.7500 at episode 4000
+20250913-225722 Episode 5000 | mean_train_reward(last 1000)=0.4440 | eval_reward=0.4584 | eval_accuracy=0.7292 | baseline=0.593
+20250913-225752 Episode 6000 | mean_train_reward(last 1000)=0.4880 | eval_reward=0.4702 | eval_accuracy=0.7351 | baseline=0.414
+20250913-225820 Episode 7000 | mean_train_reward(last 1000)=0.5000 | eval_reward=0.5408 | eval_accuracy=0.7704 | baseline=0.776
+20250913-225820 New best eval accuracy 0.7704 at episode 7000
+20250913-225847 Episode 8000 | mean_train_reward(last 1000)=0.5040 | eval_reward=0.5162 | eval_accuracy=0.7581 | baseline=0.416
+20250913-225918 Episode 9000 | mean_train_reward(last 1000)=0.5880 | eval_reward=0.7210 | eval_accuracy=0.8605 | baseline=0.532
+20250913-225918 New best eval accuracy 0.8605 at episode 9000
+20250913-225947 Episode 10000 | mean_train_reward(last 1000)=0.6700 | eval_reward=0.7300 | eval_accuracy=0.8650 | baseline=0.634
+20250913-225947 New best eval accuracy 0.8650 at episode 10000
+20250913-230019 Episode 11000 | mean_train_reward(last 1000)=0.6780 | eval_reward=0.7332 | eval_accuracy=0.8666 | baseline=0.591
+20250913-230019 New best eval accuracy 0.8666 at episode 11000
+20250913-230045 Episode 12000 | mean_train_reward(last 1000)=0.7440 | eval_reward=0.7232 | eval_accuracy=0.8616 | baseline=0.798
+20250913-230113 Episode 13000 | mean_train_reward(last 1000)=0.6560 | eval_reward=0.7346 | eval_accuracy=0.8673 | baseline=0.676
+20250913-230113 New best eval accuracy 0.8673 at episode 13000
+20250913-230139 Episode 14000 | mean_train_reward(last 1000)=0.7040 | eval_reward=0.7298 | eval_accuracy=0.8649 | baseline=0.693
+20250913-230207 Episode 15000 | mean_train_reward(last 1000)=0.6720 | eval_reward=0.7544 | eval_accuracy=0.8772 | baseline=0.536
+20250913-230207 New best eval accuracy 0.8772 at episode 15000
+20250913-230235 Episode 16000 | mean_train_reward(last 1000)=0.6900 | eval_reward=0.7464 | eval_accuracy=0.8732 | baseline=0.761
+20250913-230307 Episode 17000 | mean_train_reward(last 1000)=0.8540 | eval_reward=0.9040 | eval_accuracy=0.9520 | baseline=0.952
+20250913-230307 New best eval accuracy 0.9520 at episode 17000
+20250913-230335 Episode 18000 | mean_train_reward(last 1000)=0.9060 | eval_reward=0.9146 | eval_accuracy=0.9573 | baseline=0.837
+20250913-230335 New best eval accuracy 0.9573 at episode 18000
+20250913-230404 Episode 19000 | mean_train_reward(last 1000)=0.8700 | eval_reward=0.9164 | eval_accuracy=0.9582 | baseline=0.926
+20250913-230404 New best eval accuracy 0.9582 at episode 19000
+20250913-230432 Episode 20000 | mean_train_reward(last 1000)=0.8920 | eval_reward=0.9256 | eval_accuracy=0.9628 | baseline=0.998
+20250913-230432 New best eval accuracy 0.9628 at episode 20000
+20250913-230500 Episode 21000 | mean_train_reward(last 1000)=0.9080 | eval_reward=0.9218 | eval_accuracy=0.9609 | baseline=0.892
+20250913-230530 Episode 22000 | mean_train_reward(last 1000)=0.8780 | eval_reward=0.8496 | eval_accuracy=0.9248 | baseline=0.880
+20250913-230558 Episode 23000 | mean_train_reward(last 1000)=0.9040 | eval_reward=0.9258 | eval_accuracy=0.9629 | baseline=0.958
+20250913-230558 New best eval accuracy 0.9629 at episode 23000
+20250913-230626 Episode 24000 | mean_train_reward(last 1000)=0.9020 | eval_reward=0.9022 | eval_accuracy=0.9511 | baseline=0.861
+20250913-230655 Episode 25000 | mean_train_reward(last 1000)=0.8860 | eval_reward=0.9312 | eval_accuracy=0.9656 | baseline=0.970
+20250913-230655 New best eval accuracy 0.9656 at episode 25000
+20250913-230723 Episode 26000 | mean_train_reward(last 1000)=0.9100 | eval_reward=0.9290 | eval_accuracy=0.9645 | baseline=0.933
+20250913-230757 Episode 27000 | mean_train_reward(last 1000)=0.9300 | eval_reward=0.9224 | eval_accuracy=0.9612 | baseline=0.835
+20250913-230825 Episode 28000 | mean_train_reward(last 1000)=0.9120 | eval_reward=0.9386 | eval_accuracy=0.9693 | baseline=0.907
+20250913-230825 New best eval accuracy 0.9693 at episode 28000
+20250913-230854 Episode 29000 | mean_train_reward(last 1000)=0.9260 | eval_reward=0.9182 | eval_accuracy=0.9591 | baseline=0.870
+20250913-230924 Episode 30000 | mean_train_reward(last 1000)=0.8980 | eval_reward=0.9356 | eval_accuracy=0.9678 | baseline=0.919
+20250913-230952 Episode 31000 | mean_train_reward(last 1000)=0.9020 | eval_reward=0.9394 | eval_accuracy=0.9697 | baseline=0.986
+20250913-230952 New best eval accuracy 0.9697 at episode 31000
+20250913-231027 Episode 32000 | mean_train_reward(last 1000)=0.9220 | eval_reward=0.9482 | eval_accuracy=0.9741 | baseline=0.934
+20250913-231027 New best eval accuracy 0.9741 at episode 32000
+20250913-231056 Episode 33000 | mean_train_reward(last 1000)=0.9160 | eval_reward=0.9438 | eval_accuracy=0.9719 | baseline=0.951
+20250913-231125 Episode 34000 | mean_train_reward(last 1000)=0.9200 | eval_reward=0.9390 | eval_accuracy=0.9695 | baseline=0.959
+20250913-231153 Episode 35000 | mean_train_reward(last 1000)=0.9220 | eval_reward=0.9466 | eval_accuracy=0.9733 | baseline=0.862
+20250913-231222 Episode 36000 | mean_train_reward(last 1000)=0.9020 | eval_reward=0.9346 | eval_accuracy=0.9673 | baseline=0.983
+20250913-231250 Episode 37000 | mean_train_reward(last 1000)=0.9000 | eval_reward=0.9528 | eval_accuracy=0.9764 | baseline=0.961
+20250913-231250 New best eval accuracy 0.9764 at episode 37000
+20250913-231319 Episode 38000 | mean_train_reward(last 1000)=0.9260 | eval_reward=0.9424 | eval_accuracy=0.9712 | baseline=0.961
+20250913-231349 Episode 39000 | mean_train_reward(last 1000)=0.9300 | eval_reward=0.9482 | eval_accuracy=0.9741 | baseline=0.989
+20250913-231418 Episode 40000 | mean_train_reward(last 1000)=0.9180 | eval_reward=0.9450 | eval_accuracy=0.9725 | baseline=0.882
+20250913-231448 Episode 41000 | mean_train_reward(last 1000)=0.9300 | eval_reward=0.9486 | eval_accuracy=0.9743 | baseline=0.977
+20250913-231515 Episode 42000 | mean_train_reward(last 1000)=0.9200 | eval_reward=0.9454 | eval_accuracy=0.9727 | baseline=0.943
+20250913-231546 Episode 43000 | mean_train_reward(last 1000)=0.9220 | eval_reward=0.9524 | eval_accuracy=0.9762 | baseline=0.921
+20250913-231616 Episode 44000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9508 | eval_accuracy=0.9754 | baseline=0.972
+20250913-231646 Episode 45000 | mean_train_reward(last 1000)=0.9220 | eval_reward=0.9478 | eval_accuracy=0.9739 | baseline=0.870
+20250913-231714 Episode 46000 | mean_train_reward(last 1000)=0.9240 | eval_reward=0.9574 | eval_accuracy=0.9787 | baseline=0.993
+20250913-231714 New best eval accuracy 0.9787 at episode 46000
+20250913-231745 Episode 47000 | mean_train_reward(last 1000)=0.9320 | eval_reward=0.9548 | eval_accuracy=0.9774 | baseline=0.919
+20250913-231815 Episode 48000 | mean_train_reward(last 1000)=0.9320 | eval_reward=0.9542 | eval_accuracy=0.9771 | baseline=0.906
+20250913-231848 Episode 49000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9524 | eval_accuracy=0.9762 | baseline=0.923
+20250913-231920 Episode 50000 | mean_train_reward(last 1000)=0.9260 | eval_reward=0.9472 | eval_accuracy=0.9736 | baseline=0.909
+20250913-231952 Episode 51000 | mean_train_reward(last 1000)=0.9300 | eval_reward=0.9590 | eval_accuracy=0.9795 | baseline=0.917
+20250913-231952 New best eval accuracy 0.9795 at episode 51000
+20250913-232021 Episode 52000 | mean_train_reward(last 1000)=0.9340 | eval_reward=0.9556 | eval_accuracy=0.9778 | baseline=0.950
+20250913-232049 Episode 53000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9518 | eval_accuracy=0.9759 | baseline=0.998
+20250913-232117 Episode 54000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9508 | eval_accuracy=0.9754 | baseline=0.981
+20250913-232147 Episode 55000 | mean_train_reward(last 1000)=0.9280 | eval_reward=0.9540 | eval_accuracy=0.9770 | baseline=0.837
+20250913-232217 Episode 56000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9604 | eval_accuracy=0.9802 | baseline=0.994
+20250913-232217 New best eval accuracy 0.9802 at episode 56000
+20250913-232247 Episode 57000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9506 | eval_accuracy=0.9753 | baseline=0.962
+20250913-232321 Episode 58000 | mean_train_reward(last 1000)=0.9340 | eval_reward=0.9530 | eval_accuracy=0.9765 | baseline=0.958
+20250913-232358 Episode 59000 | mean_train_reward(last 1000)=0.9320 | eval_reward=0.9530 | eval_accuracy=0.9765 | baseline=0.993
+20250913-232427 Episode 60000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9564 | eval_accuracy=0.9782 | baseline=0.888
+20250913-232455 Episode 61000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9590 | eval_accuracy=0.9795 | baseline=0.916
+20250913-232527 Episode 62000 | mean_train_reward(last 1000)=0.9280 | eval_reward=0.9436 | eval_accuracy=0.9718 | baseline=0.866
+20250913-232557 Episode 63000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9512 | eval_accuracy=0.9756 | baseline=0.959
+20250913-232629 Episode 64000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9598 | eval_accuracy=0.9799 | baseline=0.903
+20250913-232659 Episode 65000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9614 | eval_accuracy=0.9807 | baseline=0.999
+20250913-232659 New best eval accuracy 0.9807 at episode 65000
+20250913-232729 Episode 66000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9510 | eval_accuracy=0.9755 | baseline=0.947
+20250913-232758 Episode 67000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9550 | eval_accuracy=0.9775 | baseline=0.943
+20250913-232826 Episode 68000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9640 | eval_accuracy=0.9820 | baseline=0.977
+20250913-232826 New best eval accuracy 0.9820 at episode 68000
+20250913-232856 Episode 69000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9642 | eval_accuracy=0.9821 | baseline=0.991
+20250913-232856 New best eval accuracy 0.9821 at episode 69000
+20250913-232925 Episode 70000 | mean_train_reward(last 1000)=0.9380 | eval_reward=0.9610 | eval_accuracy=0.9805 | baseline=0.953
+20250913-232956 Episode 71000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=1.000
+20250913-233025 Episode 72000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9610 | eval_accuracy=0.9805 | baseline=1.000
+20250913-233054 Episode 73000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9610 | eval_accuracy=0.9805 | baseline=0.914
+20250913-233124 Episode 74000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9494 | eval_accuracy=0.9747 | baseline=0.901
+20250913-233153 Episode 75000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9518 | eval_accuracy=0.9759 | baseline=0.884
+20250913-233221 Episode 76000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9450 | eval_accuracy=0.9725 | baseline=0.995
+20250913-233251 Episode 77000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=1.000
+20250913-233319 Episode 78000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9496 | eval_accuracy=0.9748 | baseline=0.998
+20250913-233350 Episode 79000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=0.831
+20250913-233420 Episode 80000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9552 | eval_accuracy=0.9776 | baseline=0.998
+20250913-233450 Episode 81000 | mean_train_reward(last 1000)=0.9380 | eval_reward=0.9558 | eval_accuracy=0.9779 | baseline=0.943
+20250913-233518 Episode 82000 | mean_train_reward(last 1000)=0.9380 | eval_reward=0.9620 | eval_accuracy=0.9810 | baseline=0.954
+20250913-233550 Episode 83000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9556 | eval_accuracy=0.9778 | baseline=0.960
+20250913-233621 Episode 84000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9614 | eval_accuracy=0.9807 | baseline=0.961
+20250913-233648 Episode 85000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9650 | eval_accuracy=0.9825 | baseline=0.849
+20250913-233648 New best eval accuracy 0.9825 at episode 85000
+20250913-233719 Episode 86000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9608 | eval_accuracy=0.9804 | baseline=0.981
+20250913-233750 Episode 87000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.965
+20250913-233823 Episode 88000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9554 | eval_accuracy=0.9777 | baseline=0.921
+20250913-233850 Episode 89000 | mean_train_reward(last 1000)=0.9380 | eval_reward=0.9584 | eval_accuracy=0.9792 | baseline=0.999
+20250913-233922 Episode 90000 | mean_train_reward(last 1000)=0.9340 | eval_reward=0.9638 | eval_accuracy=0.9819 | baseline=0.999
+20250913-233949 Episode 91000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9566 | eval_accuracy=0.9783 | baseline=0.893
+20250913-234021 Episode 92000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9692 | eval_accuracy=0.9846 | baseline=0.912
+20250913-234021 New best eval accuracy 0.9846 at episode 92000
+20250913-234049 Episode 93000 | mean_train_reward(last 1000)=0.9680 | eval_reward=0.9640 | eval_accuracy=0.9820 | baseline=0.907
+20250913-234118 Episode 94000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.905
+20250913-234147 Episode 95000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9678 | eval_accuracy=0.9839 | baseline=0.998
+20250913-234217 Episode 96000 | mean_train_reward(last 1000)=0.9260 | eval_reward=0.9624 | eval_accuracy=0.9812 | baseline=0.935
+20250913-234258 Episode 97000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9712 | eval_accuracy=0.9856 | baseline=0.839
+20250913-234258 New best eval accuracy 0.9856 at episode 97000
+20250913-234331 Episode 98000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9644 | eval_accuracy=0.9822 | baseline=0.911
+20250913-234404 Episode 99000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9722 | eval_accuracy=0.9861 | baseline=0.989
+20250913-234404 New best eval accuracy 0.9861 at episode 99000
+20250913-234435 Episode 100000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9646 | eval_accuracy=0.9823 | baseline=0.941
+20250913-234507 Episode 101000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9600 | eval_accuracy=0.9800 | baseline=0.910
+20250913-234541 Episode 102000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.990
+20250913-234611 Episode 103000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=0.992
+20250913-234642 Episode 104000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=0.984
+20250913-234714 Episode 105000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9630 | eval_accuracy=0.9815 | baseline=0.955
+20250913-234743 Episode 106000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9658 | eval_accuracy=0.9829 | baseline=0.849
+20250913-234811 Episode 107000 | mean_train_reward(last 1000)=0.9320 | eval_reward=0.9684 | eval_accuracy=0.9842 | baseline=0.937
+20250913-234840 Episode 108000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9682 | eval_accuracy=0.9841 | baseline=0.917
+20250913-234908 Episode 109000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9702 | eval_accuracy=0.9851 | baseline=0.825
+20250913-234937 Episode 110000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=0.955
+20250913-235007 Episode 111000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9626 | eval_accuracy=0.9813 | baseline=0.889
+20250913-235038 Episode 112000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9640 | eval_accuracy=0.9820 | baseline=0.990
+20250913-235108 Episode 113000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9554 | eval_accuracy=0.9777 | baseline=0.971
+20250913-235142 Episode 114000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9656 | eval_accuracy=0.9828 | baseline=0.924
+20250913-235211 Episode 115000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9662 | eval_accuracy=0.9831 | baseline=0.977
+20250913-235241 Episode 116000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9614 | eval_accuracy=0.9807 | baseline=0.988
+20250913-235310 Episode 117000 | mean_train_reward(last 1000)=0.9120 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.928
+20250913-235344 Episode 118000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9598 | eval_accuracy=0.9799 | baseline=1.000
+20250913-235418 Episode 119000 | mean_train_reward(last 1000)=0.9620 | eval_reward=0.9524 | eval_accuracy=0.9762 | baseline=0.968
+20250913-235448 Episode 120000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9634 | eval_accuracy=0.9817 | baseline=0.981
+20250913-235517 Episode 121000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9552 | eval_accuracy=0.9776 | baseline=0.973
+20250913-235547 Episode 122000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9626 | eval_accuracy=0.9813 | baseline=0.942
+20250913-235614 Episode 123000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9638 | eval_accuracy=0.9819 | baseline=0.997
+20250913-235643 Episode 124000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=0.953
+20250913-235715 Episode 125000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9640 | eval_accuracy=0.9820 | baseline=0.939
+20250913-235743 Episode 126000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9462 | eval_accuracy=0.9731 | baseline=1.000
+20250913-235813 Episode 127000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9500 | eval_accuracy=0.9750 | baseline=0.965
+20250913-235844 Episode 128000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9550 | eval_accuracy=0.9775 | baseline=0.901
+20250913-235919 Episode 129000 | mean_train_reward(last 1000)=0.9620 | eval_reward=0.9704 | eval_accuracy=0.9852 | baseline=0.992
+20250913-235946 Episode 130000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9646 | eval_accuracy=0.9823 | baseline=1.000
+20250914-000016 Episode 131000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9558 | eval_accuracy=0.9779 | baseline=0.984
+20250914-000049 Episode 132000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9652 | eval_accuracy=0.9826 | baseline=0.942
+20250914-000121 Episode 133000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9670 | eval_accuracy=0.9835 | baseline=0.984
+20250914-000154 Episode 134000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9580 | eval_accuracy=0.9790 | baseline=1.000
+20250914-000226 Episode 135000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.976
+20250914-000253 Episode 136000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9590 | eval_accuracy=0.9795 | baseline=0.937
+20250914-000327 Episode 137000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9646 | eval_accuracy=0.9823 | baseline=0.945
+20250914-000404 Episode 138000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9622 | eval_accuracy=0.9811 | baseline=0.905
+20250914-000437 Episode 139000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9616 | eval_accuracy=0.9808 | baseline=0.960
+20250914-000505 Episode 140000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.996
+20250914-000538 Episode 141000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9726 | eval_accuracy=0.9863 | baseline=0.899
+20250914-000538 New best eval accuracy 0.9863 at episode 141000
+20250914-000608 Episode 142000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9740 | eval_accuracy=0.9870 | baseline=0.930
+20250914-000608 New best eval accuracy 0.9870 at episode 142000
+20250914-000641 Episode 143000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9742 | eval_accuracy=0.9871 | baseline=0.814
+20250914-000641 New best eval accuracy 0.9871 at episode 143000
+20250914-000709 Episode 144000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9638 | eval_accuracy=0.9819 | baseline=0.859
+20250914-000740 Episode 145000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9678 | eval_accuracy=0.9839 | baseline=1.000
+20250914-000809 Episode 146000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9710 | eval_accuracy=0.9855 | baseline=0.975
+20250914-000836 Episode 147000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9598 | eval_accuracy=0.9799 | baseline=0.966
+20250914-000904 Episode 148000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9638 | eval_accuracy=0.9819 | baseline=0.967
+20250914-000945 Episode 149000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9658 | eval_accuracy=0.9829 | baseline=0.985
+20250914-001018 Episode 150000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9722 | eval_accuracy=0.9861 | baseline=0.994
+20250914-001046 Episode 151000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9640 | eval_accuracy=0.9820 | baseline=0.924
+20250914-001116 Episode 152000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9694 | eval_accuracy=0.9847 | baseline=0.992
+20250914-001147 Episode 153000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9620 | eval_accuracy=0.9810 | baseline=0.950
+20250914-001219 Episode 154000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9668 | eval_accuracy=0.9834 | baseline=0.972
+20250914-001252 Episode 155000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9726 | eval_accuracy=0.9863 | baseline=0.984
+20250914-001324 Episode 156000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9642 | eval_accuracy=0.9821 | baseline=0.997
+20250914-001354 Episode 157000 | mean_train_reward(last 1000)=0.9360 | eval_reward=0.9622 | eval_accuracy=0.9811 | baseline=0.881
+20250914-001432 Episode 158000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9678 | eval_accuracy=0.9839 | baseline=1.000
+20250914-001502 Episode 159000 | mean_train_reward(last 1000)=0.9740 | eval_reward=0.9710 | eval_accuracy=0.9855 | baseline=0.909
+20250914-001539 Episode 160000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9670 | eval_accuracy=0.9835 | baseline=0.942
+20250914-001615 Episode 161000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9678 | eval_accuracy=0.9839 | baseline=0.956
+20250914-001648 Episode 162000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9606 | eval_accuracy=0.9803 | baseline=0.992
+20250914-001719 Episode 163000 | mean_train_reward(last 1000)=0.9260 | eval_reward=0.9678 | eval_accuracy=0.9839 | baseline=0.975
+20250914-001747 Episode 164000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9622 | eval_accuracy=0.9811 | baseline=0.843
+20250914-001819 Episode 165000 | mean_train_reward(last 1000)=0.9340 | eval_reward=0.9666 | eval_accuracy=0.9833 | baseline=0.984
+20250914-001853 Episode 166000 | mean_train_reward(last 1000)=0.9680 | eval_reward=0.9634 | eval_accuracy=0.9817 | baseline=0.994
+20250914-001930 Episode 167000 | mean_train_reward(last 1000)=0.9680 | eval_reward=0.9608 | eval_accuracy=0.9804 | baseline=0.989
+20250914-002003 Episode 168000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=0.929
+20250914-002036 Episode 169000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9668 | eval_accuracy=0.9834 | baseline=1.000
+20250914-002104 Episode 170000 | mean_train_reward(last 1000)=0.9380 | eval_reward=0.9700 | eval_accuracy=0.9850 | baseline=0.903
+20250914-002136 Episode 171000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9664 | eval_accuracy=0.9832 | baseline=0.999
+20250914-002205 Episode 172000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9698 | eval_accuracy=0.9849 | baseline=0.870
+20250914-002232 Episode 173000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9602 | eval_accuracy=0.9801 | baseline=0.913
+20250914-002301 Episode 174000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9648 | eval_accuracy=0.9824 | baseline=0.985
+20250914-002329 Episode 175000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9674 | eval_accuracy=0.9837 | baseline=0.997
+20250914-002402 Episode 176000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9682 | eval_accuracy=0.9841 | baseline=0.893
+20250914-002432 Episode 177000 | mean_train_reward(last 1000)=0.9700 | eval_reward=0.9738 | eval_accuracy=0.9869 | baseline=0.971
+20250914-002501 Episode 178000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9588 | eval_accuracy=0.9794 | baseline=0.821
+20250914-002538 Episode 179000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9600 | eval_accuracy=0.9800 | baseline=0.991
+20250914-002610 Episode 180000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9602 | eval_accuracy=0.9801 | baseline=0.938
+20250914-002639 Episode 181000 | mean_train_reward(last 1000)=0.9620 | eval_reward=0.9690 | eval_accuracy=0.9845 | baseline=0.999
+20250914-002709 Episode 182000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9586 | eval_accuracy=0.9793 | baseline=0.997
+20250914-002742 Episode 183000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9676 | eval_accuracy=0.9838 | baseline=0.882
+20250914-002811 Episode 184000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9686 | eval_accuracy=0.9843 | baseline=0.935
+20250914-002842 Episode 185000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9696 | eval_accuracy=0.9848 | baseline=0.902
+20250914-002914 Episode 186000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9682 | eval_accuracy=0.9841 | baseline=1.000
+20250914-002954 Episode 187000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9714 | eval_accuracy=0.9857 | baseline=0.907
+20250914-003027 Episode 188000 | mean_train_reward(last 1000)=0.9440 | eval_reward=0.9646 | eval_accuracy=0.9823 | baseline=0.854
+20250914-003108 Episode 189000 | mean_train_reward(last 1000)=0.9720 | eval_reward=0.9604 | eval_accuracy=0.9802 | baseline=0.891
+20250914-003147 Episode 190000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9658 | eval_accuracy=0.9829 | baseline=0.982
+20250914-003215 Episode 191000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9650 | eval_accuracy=0.9825 | baseline=0.944
+20250914-003244 Episode 192000 | mean_train_reward(last 1000)=0.9620 | eval_reward=0.9662 | eval_accuracy=0.9831 | baseline=0.986
+20250914-003312 Episode 193000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9642 | eval_accuracy=0.9821 | baseline=0.893
+20250914-003344 Episode 194000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9672 | eval_accuracy=0.9836 | baseline=0.972
+20250914-003424 Episode 195000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9694 | eval_accuracy=0.9847 | baseline=0.857
+20250914-003458 Episode 196000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9634 | eval_accuracy=0.9817 | baseline=0.922
+20250914-003532 Episode 197000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9712 | eval_accuracy=0.9856 | baseline=0.918
+20250914-003605 Episode 198000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9670 | eval_accuracy=0.9835 | baseline=0.958
+20250914-003634 Episode 199000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9714 | eval_accuracy=0.9857 | baseline=0.972
+20250914-003705 Episode 200000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9690 | eval_accuracy=0.9845 | baseline=0.878
+20250914-003734 Episode 201000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9624 | eval_accuracy=0.9812 | baseline=0.816
+20250914-003802 Episode 202000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9636 | eval_accuracy=0.9818 | baseline=0.992
+20250914-003834 Episode 203000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9660 | eval_accuracy=0.9830 | baseline=0.999
+20250914-003903 Episode 204000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9690 | eval_accuracy=0.9845 | baseline=0.841
+20250914-003932 Episode 205000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9666 | eval_accuracy=0.9833 | baseline=0.999
+20250914-004002 Episode 206000 | mean_train_reward(last 1000)=0.9680 | eval_reward=0.9634 | eval_accuracy=0.9817 | baseline=0.996
+20250914-004031 Episode 207000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9692 | eval_accuracy=0.9846 | baseline=0.996
+20250914-004101 Episode 208000 | mean_train_reward(last 1000)=0.9720 | eval_reward=0.9706 | eval_accuracy=0.9853 | baseline=0.972
+20250914-004131 Episode 209000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9728 | eval_accuracy=0.9864 | baseline=0.923
+20250914-004202 Episode 210000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.927
+20250914-004234 Episode 211000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9640 | eval_accuracy=0.9820 | baseline=0.979
+20250914-004306 Episode 212000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9664 | eval_accuracy=0.9832 | baseline=0.944
+20250914-004339 Episode 213000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9658 | eval_accuracy=0.9829 | baseline=0.935
+20250914-004413 Episode 214000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9608 | eval_accuracy=0.9804 | baseline=0.877
+20250914-004444 Episode 215000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9680 | eval_accuracy=0.9840 | baseline=0.999
+20250914-004515 Episode 216000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9662 | eval_accuracy=0.9831 | baseline=0.957
+20250914-004547 Episode 217000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9594 | eval_accuracy=0.9797 | baseline=0.999
+20250914-004619 Episode 218000 | mean_train_reward(last 1000)=0.9680 | eval_reward=0.9516 | eval_accuracy=0.9758 | baseline=0.999
+20250914-004650 Episode 219000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9618 | eval_accuracy=0.9809 | baseline=0.943
+20250914-004720 Episode 220000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9660 | eval_accuracy=0.9830 | baseline=0.999
+20250914-004750 Episode 221000 | mean_train_reward(last 1000)=0.9380 | eval_reward=0.9690 | eval_accuracy=0.9845 | baseline=0.927
+20250914-004821 Episode 222000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9510 | eval_accuracy=0.9755 | baseline=0.997
+20250914-004852 Episode 223000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9660 | eval_accuracy=0.9830 | baseline=0.989
+20250914-004923 Episode 224000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9646 | eval_accuracy=0.9823 | baseline=0.806
+20250914-004952 Episode 225000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9648 | eval_accuracy=0.9824 | baseline=0.956
+20250914-005024 Episode 226000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9764 | eval_accuracy=0.9882 | baseline=0.989
+20250914-005024 New best eval accuracy 0.9882 at episode 226000
+20250914-005056 Episode 227000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9662 | eval_accuracy=0.9831 | baseline=0.991
+20250914-005128 Episode 228000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9676 | eval_accuracy=0.9838 | baseline=0.956
+20250914-005200 Episode 229000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9594 | eval_accuracy=0.9797 | baseline=0.793
+20250914-005231 Episode 230000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9630 | eval_accuracy=0.9815 | baseline=0.972
+20250914-005301 Episode 231000 | mean_train_reward(last 1000)=0.9480 | eval_reward=0.9734 | eval_accuracy=0.9867 | baseline=0.966
+20250914-005335 Episode 232000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9682 | eval_accuracy=0.9841 | baseline=0.999
+20250914-005406 Episode 233000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9690 | eval_accuracy=0.9845 | baseline=0.995
+20250914-005446 Episode 234000 | mean_train_reward(last 1000)=0.9700 | eval_reward=0.9688 | eval_accuracy=0.9844 | baseline=0.999
+20250914-005521 Episode 235000 | mean_train_reward(last 1000)=0.9620 | eval_reward=0.9752 | eval_accuracy=0.9876 | baseline=0.981
+20250914-005559 Episode 236000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9678 | eval_accuracy=0.9839 | baseline=0.944
+20250914-005631 Episode 237000 | mean_train_reward(last 1000)=0.9460 | eval_reward=0.9612 | eval_accuracy=0.9806 | baseline=0.991
+20250914-005704 Episode 238000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9680 | eval_accuracy=0.9840 | baseline=0.955
+20250914-005735 Episode 239000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9690 | eval_accuracy=0.9845 | baseline=0.893
+20250914-005806 Episode 240000 | mean_train_reward(last 1000)=0.9720 | eval_reward=0.9566 | eval_accuracy=0.9783 | baseline=1.000
+20250914-005844 Episode 241000 | mean_train_reward(last 1000)=0.9420 | eval_reward=0.9682 | eval_accuracy=0.9841 | baseline=0.957
+20250914-005917 Episode 242000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.963
+20250914-005955 Episode 243000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9706 | eval_accuracy=0.9853 | baseline=0.975
+20250914-010026 Episode 244000 | mean_train_reward(last 1000)=0.9680 | eval_reward=0.9678 | eval_accuracy=0.9839 | baseline=0.892
+20250914-010059 Episode 245000 | mean_train_reward(last 1000)=0.9700 | eval_reward=0.9680 | eval_accuracy=0.9840 | baseline=1.000
+20250914-010132 Episode 246000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9658 | eval_accuracy=0.9829 | baseline=0.999
+20250914-010205 Episode 247000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9656 | eval_accuracy=0.9828 | baseline=0.997
+20250914-010237 Episode 248000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9698 | eval_accuracy=0.9849 | baseline=0.977
+20250914-010316 Episode 249000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9626 | eval_accuracy=0.9813 | baseline=0.987
+20250914-010353 Episode 250000 | mean_train_reward(last 1000)=0.9620 | eval_reward=0.9736 | eval_accuracy=0.9868 | baseline=0.997
+20250914-010430 Episode 251000 | mean_train_reward(last 1000)=0.9680 | eval_reward=0.9718 | eval_accuracy=0.9859 | baseline=0.926
+20250914-010504 Episode 252000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9692 | eval_accuracy=0.9846 | baseline=0.940
+20250914-010538 Episode 253000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9474 | eval_accuracy=0.9737 | baseline=0.899
+20250914-010613 Episode 254000 | mean_train_reward(last 1000)=0.9400 | eval_reward=0.9666 | eval_accuracy=0.9833 | baseline=0.978
+20250914-010648 Episode 255000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9718 | eval_accuracy=0.9859 | baseline=0.839
+20250914-010716 Episode 256000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9732 | eval_accuracy=0.9866 | baseline=0.971
+20250914-010753 Episode 257000 | mean_train_reward(last 1000)=0.9520 | eval_reward=0.9660 | eval_accuracy=0.9830 | baseline=0.983
+20250914-010822 Episode 258000 | mean_train_reward(last 1000)=0.9640 | eval_reward=0.9628 | eval_accuracy=0.9814 | baseline=0.889
+20250914-010853 Episode 259000 | mean_train_reward(last 1000)=0.9660 | eval_reward=0.9680 | eval_accuracy=0.9840 | baseline=0.997
+20250914-010923 Episode 260000 | mean_train_reward(last 1000)=0.9500 | eval_reward=0.9662 | eval_accuracy=0.9831 | baseline=0.891
+20250914-010954 Episode 261000 | mean_train_reward(last 1000)=0.9740 | eval_reward=0.9694 | eval_accuracy=0.9847 | baseline=1.000
+20250914-011025 Episode 262000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9696 | eval_accuracy=0.9848 | baseline=0.965
+20250914-011058 Episode 263000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9728 | eval_accuracy=0.9864 | baseline=0.959
+20250914-011137 Episode 264000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9702 | eval_accuracy=0.9851 | baseline=0.912
+20250914-011211 Episode 265000 | mean_train_reward(last 1000)=0.9580 | eval_reward=0.9652 | eval_accuracy=0.9826 | baseline=0.913
+20250914-011243 Episode 266000 | mean_train_reward(last 1000)=0.9540 | eval_reward=0.9698 | eval_accuracy=0.9849 | baseline=0.890
+20250914-011315 Episode 267000 | mean_train_reward(last 1000)=0.9560 | eval_reward=0.9634 | eval_accuracy=0.9817 | baseline=0.965
+20250914-011345 Episode 268000 | mean_train_reward(last 1000)=0.9600 | eval_reward=0.9700 | eval_accuracy=0.9850 | baseline=0.900
