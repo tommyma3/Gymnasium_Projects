@@ -1,58 +1,67 @@
 import torch
 import spacy
-from torchtext.data.metrics import bleu_score
+import sacrebleu
 import sys
 
 
-def translate_sentence(model, sentence, chinese, english, device, max_length=50):
-    spacy_zh = spacy.load("zh_core_web_sm")
+def translate_sentence(model, sentence, src_field, trg_field, device, max_length=50):
+    """
+    model: your seq2seq/transformer model
+    sentence: list of tokens (Chinese tokens if src=zh)
+    src_field: tokenizer/vocab for source language
+    trg_field: tokenizer/vocab for target language
+    """
+    model.eval()
 
-    if type(sentence) == str:
-        tokens = [token.text for token in spacy_zh(sentence)]
-    else:
-        tokens = [token for token in sentence]
+    # numericalize
+    src_indexes = [src_field.vocab.stoi[token] for token in sentence]
+    src_tensor = torch.LongTensor(src_indexes).unsqueeze(1).to(device)
 
-    tokens.insert(0, chinese.init_token)
-    tokens.append(chinese.eos_token)
+    with torch.no_grad():
+        encoder_outputs = model.encoder(src_tensor)
 
-    text_to_indices = [chinese.vocab.stoi[token] for token in tokens]
+    trg_indexes = [trg_field.vocab.stoi[trg_field.init_token]]
 
-    # Convert to Tensor
-    sentence_tensor = torch.LongTensor(text_to_indices).unsqueeze(1).to(device)
-
-    outputs = [english.vocab.stoi["<sos>"]]
     for i in range(max_length):
-        trg_tensor = torch.LongTensor(outputs).unsqueeze(1).to(device)
+        trg_tensor = torch.LongTensor([trg_indexes[-1]]).to(device)
 
         with torch.no_grad():
-            output = model(sentence_tensor, trg_tensor)
+            output = model.decoder(trg_tensor, encoder_outputs)
 
-        best_guess = output.argmax(2)[-1, :].item()
-        outputs.append(best_guess)
+        pred_token = output.argmax(1).item()
+        trg_indexes.append(pred_token)
 
-        if best_guess == english.vocab.stoi["<eos>"]:
+        if pred_token == trg_field.vocab.stoi[trg_field.eos_token]:
             break
 
-    translated_sentence = [english.vocab.itos[idx] for idx in outputs]
-    # remove start token
-    return translated_sentence[1:]
+    trg_tokens = [trg_field.vocab.itos[i] for i in trg_indexes]
+    return trg_tokens[1:]  # remove <sos>
 
 
-def bleu(data, model, german, english, device):
-    targets = []
-    outputs = []
+# -----------------------------
+# BLEU Score with SacreBLEU
+# -----------------------------
+def bleu(data, model, src_field, trg_field, device, max_examples=100):
+    """
+    data: dataset with (src, trg) pairs
+    """
+    preds = []
+    refs = []
 
-    for example in data:
+    for idx, example in enumerate(data):
+        if idx > max_examples:
+            break
+
         src = vars(example)["src"]
         trg = vars(example)["trg"]
 
-        prediction = translate_sentence(model, src, german, english, device)
-        prediction = prediction[:-1]  # remove <eos> token
+        prediction = translate_sentence(model, src, src_field, trg_field, device)
 
-        targets.append([trg])
-        outputs.append(prediction)
+        preds.append(" ".join(prediction))
+        refs.append([" ".join(trg)])  # sacrebleu expects list of lists
 
-    return bleu_score(outputs, targets)
+    bleu = sacrebleu.corpus_bleu(preds, refs)
+    return bleu.score
 
 
 def save_checkpoint(state, filename="my_checkpoint.pth.tar"):
