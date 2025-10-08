@@ -1,0 +1,14 @@
+cartpole1:
+  env_id: "CartPole-v1"
+  seed: 123
+  teacher_timesteps: 100000
+  collect_episodes: 500
+  history_cap: 2000
+  max_ep_len: 500
+  embed_dim: 128
+  n_layers: 4
+  n_heads: 4
+  seq_len: 128
+  batch_size: 64
+  transformer_epochs: 8
+  lr: 3e-4
