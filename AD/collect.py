@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
     with open("hyperparameters.yml", 'r') as file:
         all_hyperparameter_sets = yaml.safe_load(file)
-        hyperparameters = all_hyperparameter_sets['collect_config']
+        hyperparameters = all_hyperparameter_sets['config']
 
         env = hyperparameters['env']
         n_envs = hyperparameters['envs']
