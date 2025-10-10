@@ -18,7 +18,8 @@ def rollin(env, rollin_type, ppo_agent=None):
     next_states = []
     rewards = []
 
-    state = env.reset()
+    state, _ = env.reset()  # Unpack the state from the new gymnasium API
+    state = np.array(state, dtype=np.float32)  # Ensure state is a numpy array with float32 dtype
     for _ in range(env.horizon):
         if rollin_type == 'uniform':
             state = env.sample_state()
@@ -26,9 +27,9 @@ def rollin(env, rollin_type, ppo_agent=None):
         elif rollin_type == 'expert':
             action = env.opt_action(state)
         elif rollin_type == 'ppo':
-            obs = np.array(state).reshape(1, -1)
+            obs = state.reshape(1, -1)  # State is already a numpy array
             act_idx, _ = ppo_agent.predict(obs, deterministic=False)
-            onehot = np.zeros(env.actions_space.n)
+            onehot = np.zeros(env.action_space.n)  # Fixed typo in action_space
             onehot[act_idx] = 1
             action = onehot
         else:
@@ -54,7 +55,7 @@ def rand_pos_and_dir(env):
     dir_vec = np.random.uniform(0, 2 * np.pi)
     return pos_vec, dir_vec
 
-def generate_mdp_histories_from_envs(envs, n_hists, n_samples, rollin_type, ppo_agent=None, update_id=None):
+def generate_mdp_histories_from_envs(envs, n_hists, n_samples, rollin_type, ppo_agent=None):
     trajs = []
     for env in envs:
         for j in range(n_hists):
@@ -76,7 +77,6 @@ def generate_mdp_histories_from_envs(envs, n_hists, n_samples, rollin_type, ppo_
                     'context_next_states': context_next_states,
                     'context_rewards': context_rewards,
                     'goal': env.goal,
-                    'update': update_id
                 }
 
                 # Add perm_index for DarkroomEnvPermuted
@@ -163,7 +163,6 @@ if __name__ == '__main__':
                 [goal], dim, horizon,
                 n_hists=n_hists, n_samples=n_samples,
                 rollin_type='ppo', ppo_agent=ppo_agent,
-                update_id=update, task_id=task_id
             )
             all_train.extend(train_trajs)
         
@@ -179,7 +178,6 @@ if __name__ == '__main__':
                 [goal], dim, horizon,
                 n_hists=n_hists, n_samples=n_samples,
                 rollin_type='ppo', ppo_agent=ppo_agent,
-                update_id=update, task_id=task_id
             )
             all_test.extend(test_trajs)
 
@@ -195,7 +193,6 @@ if __name__ == '__main__':
                 [goal], dim, horizon,
                 n_hists=n_hists, n_samples=n_samples,
                 rollin_type='ppo', ppo_agent=ppo_agent,
-                update_id=update, task_id=task_id
             )
             all_eval.extend(eval_trajs)        
 

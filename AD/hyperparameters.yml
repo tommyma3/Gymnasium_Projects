@@ -3,7 +3,7 @@ config:
   envs: 100000
   envs_eval: 100
   hists: 1
-  sampels: 1
+  samples: 1
   H: 100
   dim: 10
   lin_d: 2

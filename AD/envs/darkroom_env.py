@@ -1,4 +1,5 @@
 import itertools
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import gymnasium as gym
 import numpy as np
@@ -8,13 +9,33 @@ import torch
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class BaseEnv(gym.Env):
-    def reset(self):
+    metadata = {"render_modes": ["human"]}
+
+    def reset(self, seed: Optional[int] = None, options: Optional[Dict[str, Any]] = None) -> Tuple[np.ndarray, Dict[str, Any]]:
+        super().reset(seed=seed)
+        if seed is not None:
+            self.np_random, _ = gym.utils.seeding.np_random(seed)
+        
+        # Call the legacy reset method for backward compatibility
+        state = self._legacy_reset()
+        return state, {}
+
+    def _legacy_reset(self) -> np.ndarray:
+        """Legacy reset method - to be implemented by subclasses"""
         raise NotImplementedError
 
     def transit(self, state, action):
         raise NotImplementedError
 
-    def step(self, action):
+    def step(self, action) -> Tuple[np.ndarray, float, bool, bool, Dict[str, Any]]:
+        # Call legacy step method and adapt to new API
+        state, reward, done, info = self._legacy_step(action)
+        terminated = done
+        truncated = False  # You can modify this based on your specific termination logic
+        return state, reward, terminated, truncated, info
+
+    def _legacy_step(self, action) -> Tuple[np.ndarray, float, bool, Dict[str, Any]]:
+        """Legacy step method - to be implemented by subclasses"""
         raise NotImplementedError
 
     def render(self, mode='human'):
@@ -24,7 +45,7 @@ class BaseEnv(gym.Env):
         return self.deploy(ctrl)
 
     def deploy(self, ctrl):
-        ob = self.reset()
+        ob, _ = self.reset()  # Unpack the new reset return format
         obs = []
         acts = []
         next_obs = []
@@ -37,7 +58,8 @@ class BaseEnv(gym.Env):
             obs.append(ob)
             acts.append(act)
 
-            ob, rew, done, _ = self.step(act)
+            ob, rew, terminated, truncated, _ = self.step(act)
+            done = terminated or truncated
 
             rews.append(rew)
             next_obs.append(ob)
@@ -51,33 +73,38 @@ class BaseEnv(gym.Env):
 
 class DarkroomEnv(BaseEnv):
     def __init__(self, dim, goal, horizon):
+        super().__init__()
         self.dim = dim
         self.goal = np.array(goal)
         self.horizon = horizon
         self.state_dim = 2
         self.action_dim = 5
         self.observation_space = gym.spaces.Box(
-            low=0, high=dim - 1, shape=(self.state_dim,))
+            low=0, high=dim - 1, shape=(self.state_dim,), dtype=np.float32)
         self.action_space = gym.spaces.Discrete(self.action_dim)
+        
+        # Initialize state tracking
+        self.current_step = 0
+        self.state = None
 
     def sample_state(self):
-        return np.random.randint(0, self.dim, 2)
+        return self.np_random.integers(0, self.dim, 2) if hasattr(self, 'np_random') else np.random.randint(0, self.dim, 2)
 
     def sample_action(self):
-        i = np.random.randint(0, 5)
+        i = self.np_random.integers(0, 5) if hasattr(self, 'np_random') else np.random.randint(0, 5)
         a = np.zeros(self.action_space.n)
         a[i] = 1
         return a
 
-    def reset(self):
+    def _legacy_reset(self):
         self.current_step = 0
-        self.state = np.array([0, 0])
+        self.state = np.array([0, 0], dtype=np.float32)
         return self.state
 
     def transit(self, state, action):
         action = np.argmax(action)
         assert action in np.arange(self.action_space.n)
-        state = np.array(state)
+        state = np.array(state, dtype=np.float32)
         if action == 0:
             state[0] += 1
         elif action == 1:
@@ -89,12 +116,12 @@ class DarkroomEnv(BaseEnv):
         state = np.clip(state, 0, self.dim - 1)
 
         if np.all(state == self.goal):
-            reward = 1
+            reward = 1.0
         else:
-            reward = 0
+            reward = 0.0
         return state, reward
 
-    def step(self, action):
+    def _legacy_step(self, action):
         if self.current_step >= self.horizon:
             raise ValueError("Episode has already ended")
 
@@ -157,16 +184,49 @@ class DarkroomEnvVec(BaseEnv):
     """
 
     def __init__(self, envs):
+        super().__init__()
         self._envs = envs
         self._num_envs = len(envs)
 
-    def reset(self):
-        return [env.reset() for env in self._envs]
+    def _legacy_reset(self):
+        return [env.reset()[0] if isinstance(env.reset(), tuple) else env.reset() for env in self._envs]
 
-    def step(self, actions):
+    def reset(self, seed: Optional[int] = None, options: Optional[Dict[str, Any]] = None) -> Tuple[List[np.ndarray], Dict[str, Any]]:
+        if seed is not None:
+            seeds = [seed + i for i in range(self._num_envs)]
+            return [env.reset(seed=s)[0] for env, s in zip(self._envs, seeds)], {}
+        else:
+            return [env.reset()[0] if isinstance(env.reset(), tuple) else env.reset() for env in self._envs], {}
+
+    def step(self, actions) -> Tuple[List[np.ndarray], List[float], List[bool], List[bool], Dict[str, Any]]:
+        next_obs, rews, terminateds, truncateds = [], [], [], []
+        for action, env in zip(actions, self._envs):
+            result = env.step(action)
+            if len(result) == 5:  # New API
+                next_ob, rew, terminated, truncated, _ = result
+            else:  # Legacy API
+                next_ob, rew, done, _ = result
+                terminated = done
+                truncated = False
+            
+            next_obs.append(next_ob)
+            rews.append(rew)
+            terminateds.append(terminated)
+            truncateds.append(truncated)
+        return next_obs, rews, terminateds, truncateds, {}
+
+    def _legacy_step(self, actions):
+        # For backward compatibility
         next_obs, rews, dones = [], [], []
         for action, env in zip(actions, self._envs):
-            next_ob, rew, done, _ = env.step(action)
+            # Handle both old and new step API
+            result = env.step(action)
+            if len(result) == 5:  # New API
+                next_ob, rew, terminated, truncated, _ = result
+                done = terminated or truncated
+            else:  # Legacy API
+                next_ob, rew, done, _ = result
+            
             next_obs.append(next_ob)
             rews.append(rew)
             dones.append(done)
@@ -189,7 +249,7 @@ class DarkroomEnvVec(BaseEnv):
         return self._envs[0].action_dim
 
     def deploy(self, ctrl):
-        ob = self.reset()
+        ob, _ = self.reset()  # Unpack new reset format
         obs = []
         acts = []
         next_obs = []
@@ -202,8 +262,13 @@ class DarkroomEnvVec(BaseEnv):
             obs.append(ob)
             acts.append(act)
 
-            ob, rew, done, _ = self.step(act)
-            done = all(done)
+            result = self.step(act)
+            if len(result) == 5:  # New API
+                ob, rew, terminateds, truncateds, _ = result
+                done = all(terminateds) or all(truncateds)
+            else:  # Legacy API (fallback)
+                ob, rew, dones, _ = result
+                done = all(dones)
 
             rews.append(rew)
             next_obs.append(ob)
