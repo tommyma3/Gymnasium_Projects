@@ -19,7 +19,7 @@ class Dataset(torch.utils.data.Dataset):
 
         for p in path:
             with open(p, 'rb') as f:
-                self.trajs += torch.load(f)
+                self.trajs += torch.load(f, weights_only=False)  # Explicitly set weights_only=False for full loading
 
         context_states = []
         context_actions = []

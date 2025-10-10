@@ -22,3 +22,4 @@ config:
   test_cov: -1.0
   hor: -1
   n_eval: 100
+  seed: 0

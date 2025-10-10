@@ -4,6 +4,7 @@ import yaml
 import random
 import os
 import pickle
+import torch
 
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
@@ -12,7 +13,7 @@ from envs import darkroom_env
 from utils import build_darkroom_data_filename
 
 
-def rollin(env, rollin_type, ppo_agent=None):
+def rollin(env, rollin_type, ppo_agent):
     states = []
     actions = []
     next_states = []
@@ -209,11 +210,11 @@ if __name__ == '__main__':
     if not os.path.exists('datasets'):
         os.makedirs('datasets', exist_ok=True)
     with open(train_filepath, 'wb') as file:
-        pickle.dump(all_train, file)
+        torch.save(train_trajs, file, pickle_protocol=2)  # Use older pickle protocol for compatibility
     with open(test_filepath, 'wb') as file:
-        pickle.dump(all_test, file)
+        torch.save(test_trajs, file, pickle_protocol=2)  # Use older pickle protocol for compatibility
     with open(eval_filepath, 'wb') as file:
-        pickle.dump(all_eval, file)
+        torch.save(eval_trajs, file, pickle_protocol=2)  # Use older pickle protocol for compatibility
 
     print(f"Saved to {train_filepath}.")
     print(f"Saved to {test_filepath}.")

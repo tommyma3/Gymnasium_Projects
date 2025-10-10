@@ -18,7 +18,7 @@ from dataset import Dataset
 from net import Transformer
 import yaml
 
-from utils import build_darkroom_data_filename
+from utils import build_darkroom_data_filename, build_darkroom_model_filename
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
@@ -43,14 +43,14 @@ if __name__ == '__main__':
         state_dim = dim
         action_dim = dim
         n_embd = hyperparameters['embd']
-        n_head = hyperparameters
+        n_head = hyperparameters['head']
         n_layer = hyperparameters['layer']
         lr = hyperparameters['lr']
         shuffle = hyperparameters['shuffle']
         dropout = hyperparameters['dropout']
         var = hyperparameters['var']
         cov = hyperparameters['cov']
-        num_epochs = hyperparameters['epochs']
+        num_epochs = hyperparameters['num_epochs']
         seed = hyperparameters['seed']
         lin_d = hyperparameters['lin_d']
 
@@ -58,7 +58,7 @@ if __name__ == '__main__':
         if seed == -1:
             tmp_seed = 0
 
-        torch.manul_ssed(tmp_seed)
+        torch.manual_seed(tmp_seed)
         if torch.cuda.is_available():
             torch.cuda.manual_seed(tmp_seed)
             torch.cuda.manual_seed_all(tmp_seed)
@@ -95,7 +95,7 @@ if __name__ == '__main__':
             dataset_config.update({'rollin_type': 'uniform'})
             path_train = build_darkroom_data_filename(env, n_envs, dataset_config, mode=0)
             path_test = build_darkroom_data_filename(env, n_envs, dataset_config, mode=1)
-            filename = build_darkroom_data_filename(env, model_config)
+            filename = build_darkroom_model_filename(env, model_config)
 
         config = {
             'horizon': horizon,
@@ -158,7 +158,7 @@ if __name__ == '__main__':
                     loss = loss_fn(pred_actions, true_actions)
                     epoch_test_loss += loss.item() / horizon
 
-            test_loss.append
+            test_loss.append(epoch_test_loss / len(test_loader))
             end_time = time.time()
             printw(f"\tTest loss: {test_loss[-1]}")
             printw(f"\tEval time: {end_time - start_time}")
