@@ -23,25 +23,36 @@ def rollin(env, rollin_type, ppo_agent):
     state = np.array(state, dtype=np.float32)  # Ensure state is a numpy array with float32 dtype
     for _ in range(env.horizon):
         if rollin_type == 'uniform':
-            state = env.sample_state()
-            action = env.sample_action()
+            # Random action
+            action_idx = env.action_space.sample()
+            action = np.zeros(env.action_space.n)
+            action[action_idx] = 1
         elif rollin_type == 'expert':
-            action = env.opt_action(state)
+            # Get optimal action and convert to one-hot
+            action_idx = env.opt_action(state)
+            action = np.zeros(env.action_space.n)
+            action[action_idx] = 1
         elif rollin_type == 'ppo':
             obs = state.reshape(1, -1)  # State is already a numpy array
-            act_idx, _ = ppo_agent.predict(obs, deterministic=False)
-            onehot = np.zeros(env.action_space.n)  # Fixed typo in action_space
-            onehot[act_idx] = 1
+            action, _ = ppo_agent.predict(obs, deterministic=False)
+            # Convert to one-hot for consistency with transformer training
+            onehot = np.zeros(env.action_space.n)
+            onehot[action] = 1
             action = onehot
         else:
             raise NotImplementedError
-        next_state, reward = env.transit(state, action)
+        # Convert one-hot action to integer for step method
+        action_idx = np.argmax(action)
+        next_state, reward, terminated, truncated, _ = env.step(action_idx)
 
         states.append(state)
         actions.append(action)
         next_states.append(next_state)
         rewards.append(reward)
         state = next_state
+
+        if terminated or truncated:
+            break
 
     states = np.array(states)
     actions = np.array(actions)
@@ -68,7 +79,10 @@ def generate_mdp_histories_from_envs(envs, n_hists, n_samples, rollin_type, ppo_
             ) = rollin(env, rollin_type=rollin_type, ppo_agent=ppo_agent)
             for k in range(n_samples):
                 query_state = env.sample_state()
-                optimal_action = env.opt_action(query_state)
+                opt_act_idx = env.opt_action(query_state)
+                # Convert to one-hot for transformer training
+                optimal_action = np.zeros(env.action_space.n)
+                optimal_action[opt_act_idx] = 1
 
                 traj = {
                     'query_state': query_state,
@@ -99,6 +113,42 @@ def generate_darkroom_permuted_histories(indices, dim, horizon, **kwargs):
         dim, index, horizon) for index in indices]
     trajs = generate_mdp_histories_from_envs(envs, **kwargs)
     return trajs
+
+def evaluate_ppo(env, agent, n_episodes=20):
+    """
+    Evaluate PPO agent in the environment.
+    Returns average reward and success rate.
+    """
+    rewards = []
+    successes = 0
+
+    for _ in range(n_episodes):
+        obs = env.reset()
+        if isinstance(obs, tuple):  # Gymnasium returns (obs, info)
+            obs = obs[0]
+        total_reward = 0
+        done = False
+        steps = 0
+
+        while not done and steps < env.horizon:
+            action, _ = ppo_agent.predict(obs, deterministic=True)
+            step_result = env.step(action)  # Use integer action directly for environment step
+            if len(step_result) == 5:
+                obs, reward, terminated, truncated, _ = step_result
+                done = terminated or truncated
+            else:
+                obs, reward, done, _ = step_result
+
+            total_reward += reward
+            steps += 1
+            if np.array_equal(obs, env.goal):
+                successes += 1
+                break
+        rewards.append(total_reward)
+
+    avg_reward = float(np.mean(rewards))
+    success_rate = successes / n_episodes
+    return avg_reward, success_rate
 
 
 if __name__ == '__main__':
@@ -149,53 +199,121 @@ if __name__ == '__main__':
     # test_goals = np.repeat(test_goals, n_envs // (dim * dim), axis=0)
 
 
-    total_updates = 50
+    total_updates = 100
+
+    min_updates = 10
+    max_updates = 500
+    patience = 5
+
+
     all_train, all_test, all_eval = [], [], []
     for task_id, goal in enumerate(train_goals):
         print(f"Training PPO teacher on task {task_id} with goal {goal}")
 
         base_env = lambda: darkroom_env.DarkroomEnv(dim, goal, horizon)
         train_env = DummyVecEnv([base_env])
-        ppo_agent = PPO("MlpPolicy", train_env, verbose=0, n_steps=256)
+        ppo_agent = PPO("MlpPolicy", train_env, verbose=0, n_steps=256, ent_coef=0.1)
 
-        for update in range(total_updates):
+        best_reward = 0
+        no_improve_counter = 0
+
+        for update in range(max_updates):
+            # one PPO update
             ppo_agent.learn(total_timesteps=ppo_agent.n_steps, reset_num_timesteps=False)
+
+            # Evaluate PPO teacher
+            avg_reward, success_rate = evaluate_ppo(base_env(), ppo_agent)
+            print(f"Task {task_id} | Update {update:03d} | "
+                f"Avg Reward: {avg_reward:.3f} | Success Rate: {success_rate*100:.1f}%")
+
+            if avg_reward > best_reward:
+                best_reward = avg_reward
+                no_improve_counter = 0
+            elif avg_reward == 1:
+                no_improve_counter += 1
+            else:
+                no_improve_counter = 0
+
+            # collect histories at this stage
             train_trajs = generate_darkroom_histories(
                 [goal], dim, horizon,
                 n_hists=n_hists, n_samples=n_samples,
                 rollin_type='ppo', ppo_agent=ppo_agent,
             )
             all_train.extend(train_trajs)
+
+            if (update >= min_updates) and (no_improve_counter >= patience):
+                print(f"Task {task_id} converged at update {update}")
+                break
         
     for task_id, goal in enumerate(test_goals, start=len(train_goals)):
         print(f"Training PPO teacher on TEST task {task_id} with goal {goal}")
         base_env = lambda: darkroom_env.DarkroomEnv(dim, goal, horizon=horizon)
         test_env = DummyVecEnv([base_env])
-        ppo_agent = PPO("MlpPolicy", test_env, verbose=0, n_steps=256)
+        ppo_agent = PPO("MlpPolicy", test_env, verbose=0, n_steps=256, ent_coef=0.1)
+
+        best_reward = 0
+        no_improve_counter = 0
 
         for update in range(total_updates):
             ppo_agent.learn(total_timesteps=ppo_agent.n_steps, reset_num_timesteps=False)
+
+            avg_reward, success_rate = evaluate_ppo(base_env(), ppo_agent)
+            print(f"Task {task_id} | Update {update:03d} | "
+                f"Avg Reward: {avg_reward:.3f} | Success Rate: {success_rate*100:.1f}%")
+
+            if avg_reward > best_reward:
+                best_reward = avg_reward
+                no_improve_counter = 0
+            elif avg_reward == 1:
+                no_improve_counter += 1
+            else:
+                no_improve_counter = 0
+
+
             test_trajs = generate_darkroom_histories(
                 [goal], dim, horizon,
                 n_hists=n_hists, n_samples=n_samples,
                 rollin_type='ppo', ppo_agent=ppo_agent,
             )
             all_test.extend(test_trajs)
+            if (update >= min_updates) and (no_improve_counter >= patience):
+                print(f"Task {task_id} converged at update {update}")
+                break
 
     for task_id, goal in enumerate(eval_goals, start=len(train_goals) + len(test_goals)):
         print(f"Training PPO teacher on EVAL task {task_id} with goal {goal}")
         base_env = lambda: darkroom_env.DarkroomEnv(dim, goal, horizon=horizon)
         eval_env = DummyVecEnv([base_env])
-        ppo_agent = PPO("MlpPolicy", eval_env, verbose=0, n_steps=256)
+        ppo_agent = PPO("MlpPolicy", eval_env, verbose=0, n_steps=256, ent_coef=0.1)
+
+        best_reward = 0
+        no_improve_counter = 0
 
         for update in range(total_updates):
             ppo_agent.learn(total_timesteps=ppo_agent.n_steps, reset_num_timesteps=False)
+
+            avg_reward, success_rate = evaluate_ppo(base_env(), ppo_agent)
+            print(f"Task {task_id} | Update {update:03d} | "
+                f"Avg Reward: {avg_reward:.3f} | Success Rate: {success_rate*100:.1f}%")
+
+            if avg_reward > best_reward:
+                best_reward = avg_reward
+                no_improve_counter = 0
+            elif avg_reward == 1:
+                no_improve_counter += 1
+            else:
+                no_improve_counter = 0
+
             eval_trajs = generate_darkroom_histories(
                 [goal], dim, horizon,
                 n_hists=n_hists, n_samples=n_samples,
                 rollin_type='ppo', ppo_agent=ppo_agent,
             )
-            all_eval.extend(eval_trajs)        
+            all_eval.extend(eval_trajs)
+            if (update >= min_updates) and (no_improve_counter >= patience):
+                print(f"Task {task_id} converged at update {update}")
+                break        
 
     
     #train_trajs = generate_darkroom_histories(train_goals, **config)
