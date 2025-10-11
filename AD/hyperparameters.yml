@@ -14,12 +14,12 @@ config:
   embd: 32
   head: 1
   layer: 3
-  lr: 1e-3
+  lr: 0.001
   dropout: 0
   shuffle: False
   num_epochs: 1000
   epoch: -1
   test_cov: -1.0
-  hor: -1
+  horizon: -1
   n_eval: 100
   seed: 0

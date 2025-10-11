@@ -29,12 +29,19 @@ class Dataset(torch.utils.data.Dataset):
         teacher_actions = []
 
         for traj in self.trajs:
+            # Handle context data with consistent keys
             context_states.append(traj['context_states'])
             context_actions.append(traj['context_actions'])
             context_next_states.append(traj['context_next_states'])
             context_rewards.append(traj['context_rewards'])
-            query_states.append(traj['query_states'])
-            teacher_actions.append(traj['teacher_actions'])
+            
+            # Handle query state with either old or new format
+            query_key = 'query_states' if 'query_states' in traj else 'query_state'
+            query_states.append(traj[query_key])
+            
+            # Handle teacher actions with either old or new format
+            action_key = 'teacher_actions' if 'teacher_actions' in traj else 'optimal_action'
+            teacher_actions.append(traj[action_key])
         
         context_states = np.array(context_states)
         context_actions = np.array(context_actions)
