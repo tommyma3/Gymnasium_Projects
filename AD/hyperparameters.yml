@@ -11,9 +11,9 @@ config:
   cov: 0.0
   env_id_start: -1
   env_id_end: -1
-  embd: 32
-  head: 1
-  layer: 3
+  embd: 64
+  head: 4
+  layer: 4
   lr: 0.001
   dropout: 0
   shuffle: False

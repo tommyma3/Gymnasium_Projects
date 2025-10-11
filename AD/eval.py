@@ -111,5 +111,32 @@ if __name__ == '__main__':
         raise ValueError(f'Environment {envname} not supported')
     
     dataset_config.update({'rollin_type': "uniform"})
+    eval_filepath = build_darkroom_data_filename(envname, 0, n_eval, dataset_config, mode=2)
+    save_filename = f'{filename}_hor{horizon}.pkl'
 
+    with open(eval_filepath, 'rb') as f:
+        eval_trajs = pickle.load(f)
+
+    n_eval = min(n_eval, len(eval_trajs))
+
+    evals_filename = f'evals_epoch{epoch}'
+    if not os.path.exists(f'figs/{evals_filename}'):
+        os.makedirs(f'figs/{evals_filename}', exist_ok=True)
+    if not os.path.exists(f'figs/{evals_filename}/bar'):
+        os.makedirs(f'figs/{evals_filename}/bar', exist_ok=True)
+    if not os.path.exists(f'figs/{evals_filename}/online'):
+        os.makedirs(f'figs/{evals_filename}/online', exist_ok=True)
+    if not os.path.exists(f'figs/{evals_filename}/graph'):
+        os.makedirs(f'figs/{evals_filename}/graph', exist_ok=True)
+
+    config = {
+        'Heps': 40,
+        'horizon': horizon,
+        'H': H,
+        'n_eval': min(20, n_eval),
+        'dim': dim,
+        'permuted': True if envname == 'darkroom_permuted' else False
+    }
+
+    
     
