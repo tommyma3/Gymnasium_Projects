@@ -15,7 +15,7 @@ config:
   head: 4
   layer: 4
   lr: 0.001
-  dropout: 0
+  dropout: 0.1
   shuffle: False
   num_epochs: 1000
   epoch: -1
@@ -23,3 +23,13 @@ config:
   horizon: -1
   n_eval: 100
   seed: 0
+
+ppo:
+  total_timesteps: 50000
+  timesteps_per_batch: 2048
+  k_epochs: 80
+  eps_clip: 0.2
+  gamma: 0.99
+  lr_actor: 0.0003
+  lr_critic: 0.001
+  patience: 7

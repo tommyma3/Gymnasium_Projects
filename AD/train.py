@@ -149,7 +149,7 @@ if __name__ == '__main__':
                 for i, batch in enumerate(test_loader):
                     print(f"Batch {i} of {len(test_loader)}", end='\r')
                     batch = {k: v.to(device) for k, v in batch.items()}
-                    true_actions = batch['teacher_actions']
+                    true_actions = batch['teacher_action']
                     pred_actions = model(batch)
                     true_actions = true_actions.unsqueeze(1).repeat(1, pred_actions.shape[1], 1)
                     true_actions = true_actions.reshape(-1, action_dim)
@@ -171,7 +171,7 @@ if __name__ == '__main__':
             for i, batch in enumerate(train_loader):
                 print(f"Batch {i} of {len(train_loader)}", end='\r')
                 batch = {k: v.to(device) for k, v in batch.items()}
-                true_actions = batch['teacher_actions']
+                true_actions = batch['teacher_action']
                 pred_actions = model(batch)
                 true_actions = true_actions.unsqueeze(1).repeat(1, pred_actions.shape[1], 1)
                 true_actions = true_actions.reshape(-1, action_dim)

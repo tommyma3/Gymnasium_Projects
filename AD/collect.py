@@ -79,14 +79,15 @@ def generate_mdp_histories_from_envs(envs, n_hists, n_samples, rollin_type, ppo_
             ) = rollin(env, rollin_type=rollin_type, ppo_agent=ppo_agent)
             for k in range(n_samples):
                 query_state = env.sample_state()
-                opt_act_idx = env.opt_action(query_state)
-                # Convert to one-hot for transformer training
-                optimal_action = np.zeros(env.action_space.n)
-                optimal_action[opt_act_idx] = 1
+
+                obs = np.array(query_state).reshape(1, -1)
+                act_idx, _ = ppo_agent.predict(obs, deterministic=False)
+                teacher_action = np.zeros(env.action_space.n)
+                teacher_action[act_idx] = 1
 
                 traj = {
                     'query_state': query_state,
-                    'optimal_action': optimal_action,
+                    'teacher_action': teacher_action,
                     'context_states': context_states,
                     'context_actions': context_actions,
                     'context_next_states': context_next_states,

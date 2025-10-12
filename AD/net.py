@@ -39,7 +39,7 @@ class Transformer(nn.Module):
 
     
     def forward(self, x):
-        query_states = x['query_states'][:, None, :]
+        query_states = x['query_state'][:, None, :]
         zeros = x['zeros'][:, None, :]
 
         state_seq = torch.cat([query_states, x['context_states']], dim=1)
