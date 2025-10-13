@@ -6,9 +6,9 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 from envs import darkroom_env
-from dataset import Dataset
-from net import Transformer
-from utils import build_darkroom_model_filename, build_darkroom_data_filename
+from previous.dataset import Dataset
+from previous.net import Transformer
+from previous.utils import build_darkroom_model_filename, build_darkroom_data_filename
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")

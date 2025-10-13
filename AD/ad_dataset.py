@@ -1,6 +1,7 @@
 import torch
 from torch.utils.data import Dataset
 import random
+import numpy as np
 
 class HistoryDataset(Dataset):
     """
@@ -10,9 +11,20 @@ class HistoryDataset(Dataset):
     """
 
     def __init__(self, state_file, action_file, reward_file, seq_len=200, action_dim=5):
+        # Load data
         self.history_state = torch.load(state_file, weights_only=False)
         self.history_action = torch.load(action_file, weights_only=False)
         self.history_reward = torch.load(reward_file, weights_only=False)
+        
+        # Pre-convert lists to numpy arrays for efficiency
+        for tid in self.history_state.keys():
+            if isinstance(self.history_state[tid], list):
+                self.history_state[tid] = np.array(self.history_state[tid], dtype=np.float32)
+            if isinstance(self.history_action[tid], list):
+                self.history_action[tid] = np.array(self.history_action[tid], dtype=np.int64)
+            if isinstance(self.history_reward[tid], list):
+                self.history_reward[tid] = np.array(self.history_reward[tid], dtype=np.float32)
+
         self.seq_len = seq_len
         self.action_dim = action_dim
 
@@ -26,9 +38,10 @@ class HistoryDataset(Dataset):
     def __getitem__(self, idx):
         # Randomly sample a task
         task_id = random.choice(self.task_ids)
-        states = torch.tensor(self.history_state[task_id], dtype=torch.float32)
-        actions = torch.tensor(self.history_action[task_id], dtype=torch.long)
-        rewards = torch.tensor(self.history_reward[task_id], dtype=torch.float32)
+        # Convert numpy arrays to tensors directly
+        states = torch.from_numpy(self.history_state[task_id]).float()
+        actions = torch.from_numpy(self.history_action[task_id]).long()
+        rewards = torch.from_numpy(self.history_reward[task_id]).float()
 
         # Make one-hot actions for embedding
         actions = torch.nn.functional.one_hot(actions, num_classes=self.action_dim).float()
