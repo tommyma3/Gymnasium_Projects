@@ -58,7 +58,7 @@ class DarkroomEnv(gym.Env):
         options: Optional[Dict[str, Any]] = None,
     ) -> Tuple[np.ndarray, Dict[str, Any]]:
         super().reset(seed=seed)
-        self.state = np.array([0, 0], dtype=np.float32)
+        self.state = np.array([4, 4], dtype=np.float32)
         self.current_step = 0
         return self.state.copy(), {}
 

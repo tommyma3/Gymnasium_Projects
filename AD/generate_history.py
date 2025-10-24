@@ -72,6 +72,7 @@ class History_Generator:
 
         
         print(f'Training on {device}...')
+        print(f'Darkroom Horizon: {self.horizon}')
 
 
         history_state, history_action, history_reward = {}, {}, {}

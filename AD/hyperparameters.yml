@@ -4,7 +4,7 @@ config:
   envs_eval: 100
   hists: 1
   samples: 1
-  H: 50
+  H: 20
   dim: 9
   lin_d: 2
   var: 0.0
@@ -14,7 +14,11 @@ config:
   embd: 64
   head: 4
   layer: 4
-  lr: 0.001
+  lr_init: 0.000002  # Initial learning rate
+  lr_peak: 0.0003   # Peak learning rate for cosine schedule
+  batch_size: 128
+  beta_1: 0.9
+  beta_2: 0.99
   dropout: 0.1
   shuffle: False
   num_epochs: 1000
@@ -23,6 +27,9 @@ config:
   horizon: -1
   n_eval: 100
   seed: 0
+  max_seq_len: 1024
+  train_history_len: 300
+  grad_clip: 1.0
 
 ppo:
   total_timesteps: 50000

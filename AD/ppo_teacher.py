@@ -153,13 +153,13 @@ if __name__ == '__main__':
     # --- Hyperparameters ---
     # Environment
     DIM = 9
-    GOAL = [8, 8]
+    GOAL = [0, 8]
     ## CHANGED: Increased horizon to give the agent more time to explore
-    HORIZON = 50 
+    HORIZON = 20
 
     # PPO
     ## CHANGED: Increased total timesteps and batch size for more stable learning
-    TOTAL_TIMESTEPS = 50000
+    TOTAL_TIMESTEPS = 80000
     TIMESTEPS_PER_BATCH = 2048
     K_EPOCHS = 80 # A few more epochs can help with the larger batch size
     EPS_CLIP = 0.2
